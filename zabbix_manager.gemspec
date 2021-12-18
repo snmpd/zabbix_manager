@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require_relative "lib/zabbix_manager/version"
 
 Gem::Specification.new do |spec|
+  spec.add_dependency 'http', '~> 2.0'
+  spec.add_dependency 'json', '~> 2.0'
+  spec.add_development_dependency 'bundler'
+  
   spec.name          = "zabbix_manager"
   spec.version       = ZabbixManager::VERSION
   spec.authors       = ["WENWU YAN"]
@@ -26,7 +33,8 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject do |f|
       (f == __FILE__) || f.match(%r{\A(?:(?:test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
     end
-  end
+  end + Dir['lib/**/*.rb']
+
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
