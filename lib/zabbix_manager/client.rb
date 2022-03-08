@@ -10,20 +10,19 @@ class ZabbixManager
 
     # @return [Integer]
     def id
-      rand(100_000)
+      rand(800_000)
     end
 
     # Returns the API version from the Zabbix Server
     #
-    # @return [String]
+    # @return [String, Hash]
     def api_version
-      @api_version ||= api_request(method: 'apiinfo.version', params: {})
-      @api_version
+      api_request(method: 'apiinfo.version', params: {})
     end
 
     # Log in to the Zabbix Server and generate an auth token using the API
     #
-    # @return [Hash]
+    # @return [Hash, String]
     def auth
       api_request(
         method: 'user.login',
@@ -38,7 +37,7 @@ class ZabbixManager
     #
     # @return [boolean]
     def debug?
-      return !@options || @options[:debug]
+      !@options || @options[:debug]
     end
 
     # Initializes a new Client object
@@ -58,9 +57,10 @@ class ZabbixManager
         @proxy_uri               = URI.parse(ENV['http_proxy'])
         @proxy_host              = @proxy_uri.host
         @proxy_port              = @proxy_uri.port
-        @proxy_user, @proxy_pass = @proxy_uri.userinfo.split(/:/) if @proxy_uri.userinfo
+        @proxy_user, @proxy_pass = @proxy_uri.userinfo&.split(/:/) if @proxy_uri.userinfo
       end
-      unless api_version =~ %r{^5.[0|2]\.\d+$}
+
+      if api_version.match? /^7\.\d+\.\d+$/
         message = "Zabbix API version: #{api_version} is not supported by this version of zabbixapi"
         if @options[:ignore_version]
           puts "[WARNING] #{message}" if @options[:debug]
