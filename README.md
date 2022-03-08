@@ -1,8 +1,6 @@
 # ZabbixManager
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/zabbix_manager`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+most codes are borrowed from zabbixapi, but changed some logic to fit everyday job wells. now support ZABBIX 4.0, 5.0, 6.0
 
 ## Installation
 
@@ -40,4 +38,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the ZabbixManager project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/zabbix_manager/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ZabbixManager project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ciscolive/zabbix_manager/blob/master/CODE_OF_CONDUCT.md).
