@@ -158,7 +158,7 @@ class ZabbixManager
           manual_close:        1,
         }
       )
-      ap result
+      #ap result
       # 检查是是否存在
       result.empty? ? nil : result["triggerids"]
     end

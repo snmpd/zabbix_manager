@@ -83,7 +83,8 @@ class ZabbixManager
     # 根据设备名称和接口名字查询监控项 | 15809 | GigabitEthernet1/0/12
     def get_interface_items(hostid, name)
       # 自动剔除收尾空白字串
-      iface = "Interface #{name.strip}("
+      _name = name&.gsub(%r"[^\/0-9]", "")&.strip
+      iface = "#{_name}("
 
       # 模糊查询接口下所有监控项，同时过滤出特定的 snmp_oid
       result = @client.api_request(
