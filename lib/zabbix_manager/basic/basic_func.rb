@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Basic
     # Log messages to stdout when debugging
@@ -26,12 +28,13 @@ class ZabbixManager
     # @param object [Array, Hash]
     # @return [Array, Hash]
     def symbolize_keys(object)
-      if object.is_a?(Array)
+      case object
+      when Array
         object.each_with_index do |val, index|
           object[index] = symbolize_keys(val)
         end
-      elsif object.is_a?(Hash)
-        object.keys.each do |key|
+      when Hash
+        object.each_key do |key|
           object[key.to_sym] = symbolize_keys(object.delete(key))
         end
       end
@@ -62,9 +65,10 @@ class ZabbixManager
       result = []
 
       array.each do |e|
-        if e.is_a?(Array)
+        case e
+        when Array
           result.push(normalize_array(e))
-        elsif e.is_a?(Hash)
+        when Hash
           result.push(normalize_hash(e))
         else
           result.push(e.to_s)

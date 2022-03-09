@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Mediatypes < Basic
     # The method name used for interacting with MediaTypes via Zabbix API
     #
     # @return [String]
     def method_name
-      'mediatype'
+      "mediatype"
     end
 
     # The id field name used for identifying specific MediaType objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # The default options used when creating MediaType objects via Zabbix API
@@ -19,16 +21,16 @@ class ZabbixManager
     # @return [Hash]
     def default_options
       {
-        name: '', # Name
-        description: '', # Description
+        name: "", # Name
+        description: "", # Description
         type: 0, # 0 - Email, 1 - External script, 2 - SMS, 3 - Jabber, 100 - EzTexting
-        smtp_server: '',
-        smtp_helo: '',
-        smtp_email: '', # Email address of Zabbix server
-        exec_path: '',  # Name of external script
-        gsm_modem: '',  # Serial device name of GSM modem
-        username: '', # Jabber user name used by Zabbix server
-        passwd: '' # Jabber password used by Zabbix server
+        smtp_server: "",
+        smtp_helo: "",
+        smtp_email: "", # Email address of Zabbix server
+        exec_path: "",  # Name of external script
+        gsm_modem: "",  # Serial device name of GSM modem
+        username: "", # Jabber user name used by Zabbix server
+        passwd: "" # Jabber password used by Zabbix server
       }
     end
 
@@ -78,12 +80,12 @@ class ZabbixManager
       data = symbolize_keys(data) if data.key?(identify)
       # raise an error if identify name was not supplied
       name = data[identify.to_sym]
-      raise ManagerError.new("#{identify} not supplied in call to get_id, #{data} (#{method_name})") if name.nil?
+      raise ManagerError, "#{identify} not supplied in call to get_id, #{data} (#{method_name})" if name.nil?
 
       result = @client.api_request(
         method: "#{method_name}.get",
         params: {
-          filter: {name: name},
+          filter: { name: name },
           output: [key, identify]
         }
       )

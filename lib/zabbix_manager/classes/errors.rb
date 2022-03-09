@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class BaseError < RuntimeError
     attr_accessor :response, :error, :error_message
@@ -9,11 +11,11 @@ class ZabbixManager
       set_error! if @response
     end
 
-  private
+    private
 
     def set_error!
-      @error = @response['error']
-      @error_message = "#{@error['message']}: #{@error['data']}"
+      @error = @response["error"]
+      @error_message = "#{@error["message"]}: #{@error["data"]}"
     rescue StandardError
       @error = nil
       @error_message = nil

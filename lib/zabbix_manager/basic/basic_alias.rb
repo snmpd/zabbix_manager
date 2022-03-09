@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Basic
     # Get Zabbix object data from API by id

@@ -1,31 +1,33 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Users < Basic
     # The method name used for interacting with Users via Zabbix API
     #
     # @return [String]
     def method_name
-      'user'
+      "user"
     end
 
     # The keys field name used for User objects via Zabbix API
     #
     # @return [String]
     def keys
-      'userids'
+      "userids"
     end
 
     # The key field name used for User objects via Zabbix API
     #
     # @return [String]
     def key
-      'userid'
+      "userid"
     end
 
     # The id field name used for identifying specific User objects via Zabbix API
     #
     # @return [String]
     def identify
-      'alias'
+      "alias"
     end
 
     def medias_helper(data, action)
@@ -34,11 +36,11 @@ class ZabbixManager
         params: data[:userids].map do |t|
           {
             userid: t,
-            user_medias: data[:media],
+            user_medias: data[:media]
           }
-        end,
+        end
       )
-      result ? result['userids'][0].to_i : nil
+      result ? result["userids"][0].to_i : nil
     end
 
     # Add media to users using Zabbix API
@@ -48,7 +50,7 @@ class ZabbixManager
     # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
     # @return [Integer] Zabbix object id (media)
     def add_medias(data)
-      medias_helper(data, 'update')
+      medias_helper(data, "update")
     end
 
     # Update media for users using Zabbix API
@@ -58,7 +60,7 @@ class ZabbixManager
     # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
     # @return [Integer] Zabbix object id (user)
     def update_medias(data)
-      medias_helper(data, 'update')
+      medias_helper(data, "update")
     end
   end
 end

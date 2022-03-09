@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Screens < Basic
     # extracted from frontends/php/include/defines.inc.php
@@ -23,14 +25,14 @@ class ZabbixManager
     #
     # @return [String]
     def method_name
-      'screen'
+      "screen"
     end
 
     # The id field name used for identifying specific Screen objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # Delete Screen object using Zabbix API
@@ -40,8 +42,8 @@ class ZabbixManager
     # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
     # @return [Integer] Zabbix object id
     def delete(data)
-      result = @client.api_request(method: 'screen.delete', params: [data])
-      result.empty? ? nil : result['screenids'][0].to_i
+      result = @client.api_request(method: "screen.delete", params: [data])
+      result.empty? ? nil : result["screenids"][0].to_i
     end
 
     # Get or Create Screen object for Host using Zabbix API

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Configurations < Basic
     # @return [Boolean]
@@ -9,14 +11,14 @@ class ZabbixManager
     #
     # @return [String]
     def method_name
-      'configuration'
+      "configuration"
     end
 
     # The id field name used for identifying specific Configuration objects via Zabbix API
     #
     # @return [String]
     def identify
-      'host'
+      "host"
     end
 
     # Export configuration data using Zabbix API
@@ -26,7 +28,7 @@ class ZabbixManager
     # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
     # @return [Hash]
     def export(data)
-      @client.api_request(method: 'configuration.export', params: data)
+      @client.api_request(method: "configuration.export", params: data)
     end
 
     # Import configuration data using Zabbix API
@@ -36,7 +38,7 @@ class ZabbixManager
     # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
     # @return [Hash]
     def import(data)
-      @client.api_request(method: 'configuration.import', params: data)
+      @client.api_request(method: "configuration.import", params: data)
     end
   end
 end

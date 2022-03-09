@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Templates < Basic
     # The method name used for interacting with Templates via Zabbix API
     #
     # @return [String]
     def method_name
-      'template'
+      "template"
     end
 
     # The id field name used for identifying specific Template objects via Zabbix API
     #
     # @return [String]
     def identify
-      'host'
+      "host"
     end
 
     # Delete Template object using Zabbix API
@@ -21,8 +23,8 @@ class ZabbixManager
     # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
     # @return [Integer] The Template object id that was deleted
     def delete(data)
-      result = @client.api_request(method: 'template.delete', params: [data])
-      result.empty? ? nil : result['templateids'][0].to_i
+      result = @client.api_request(method: "template.delete", params: [data])
+      result.empty? ? nil : result["templateids"][0].to_i
     end
 
     # Get Template ids for Host from Zabbix API
@@ -32,8 +34,8 @@ class ZabbixManager
     # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
     # @return [Array] Returns array of Template ids
     def get_ids_by_host(data)
-      @client.api_request(method: 'template.get', params: data).map do |tmpl|
-        tmpl['templateid']
+      @client.api_request(method: "template.get", params: data).map do |tmpl|
+        tmpl["templateid"]
       end
     end
 
@@ -58,9 +60,9 @@ class ZabbixManager
     # @return [Boolean]
     def mass_update(data)
       result = @client.api_request(
-        method: 'template.massUpdate',
+        method: "template.massUpdate",
         params: {
-          hosts:     data[:hosts_id].map { |t| { hostid: t } },
+          hosts: data[:hosts_id].map { |t| { hostid: t } },
           templates: data[:templates_id].map { |t| { templateid: t } }
         }
       )
@@ -75,9 +77,9 @@ class ZabbixManager
     # @return [Boolean]
     def mass_add(data)
       result = @client.api_request(
-        method: 'template.massAdd',
+        method: "template.massAdd",
         params: {
-          hosts:     data[:hosts_id].map { |t| { hostid: t } },
+          hosts: data[:hosts_id].map { |t| { hostid: t } },
           templates: data[:templates_id].map { |t| { templateid: t } }
         }
       )
@@ -92,12 +94,12 @@ class ZabbixManager
     # @return [Boolean]
     def mass_remove(data)
       result = @client.api_request(
-        method: 'template.massRemove',
+        method: "template.massRemove",
         params: {
-          hostids:     data[:hosts_id],
+          hostids: data[:hosts_id],
           templateids: data[:templates_id],
-          groupids:    data[:group_id],
-          force:       1
+          groupids: data[:group_id],
+          force: 1
         }
       )
       result.empty? ? false : true
@@ -107,14 +109,14 @@ class ZabbixManager
     def get_template_ids(data)
       # 直接调后端接口
       result = @client.api_request(
-        method: 'template.get',
+        method: "template.get",
         params: {
           output: "extend",
           filter: {
             host: [data].flatten
           }
         }
-      ).map { |temp| [templateid: temp['templateid']]}
+      ).map { |temp| [templateid: temp["templateid"]] }
 
       # 返回 template 模板数组对象
       result.empty? ? nil : result.flatten

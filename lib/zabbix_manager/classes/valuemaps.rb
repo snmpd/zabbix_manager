@@ -1,24 +1,26 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class ValueMaps < Basic
     # The method name used for interacting with ValueMaps via Zabbix API
     #
     # @return [String]
     def method_name
-      'valuemap'
+      "valuemap"
     end
 
     # The key field name used for ValueMap objects via Zabbix API
     #
     # @return [String]
     def key
-      'valuemapid'
+      "valuemapid"
     end
 
     # The id field name used for identifying specific ValueMap objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # Get or Create ValueMap object using Zabbix API

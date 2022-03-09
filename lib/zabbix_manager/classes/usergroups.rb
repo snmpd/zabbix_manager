@@ -1,24 +1,26 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Usergroups < Basic
     # The method name used for interacting with Usergroups via Zabbix API
     #
     # @return [String]
     def method_name
-      'usergroup'
+      "usergroup"
     end
 
     # The key field name used for Usergroup objects via Zabbix API
     #
     # @return [String]
     def key
-      'usrgrpid'
+      "usrgrpid"
     end
 
     # The id field name used for identifying specific Usergroup objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # Set permissions for usergroup using Zabbix API
@@ -30,13 +32,13 @@ class ZabbixManager
     def permissions(data)
       permission = data[:permission] || 2
       result = @client.api_request(
-        method: 'usergroup.update',
+        method: "usergroup.update",
         params: {
           usrgrpid: data[:usrgrpid],
           rights: data[:hostgroupids].map { |t| { permission: permission, id: t } }
         }
       )
-      result ? result['usrgrpids'][0].to_i : nil
+      result ? result["usrgrpids"][0].to_i : nil
     end
 
     # Add users to usergroup using Zabbix API
@@ -60,14 +62,14 @@ class ZabbixManager
       user_groups = data[:usrgrpids].map do |t|
         {
           usrgrpid: t,
-          userids: data[:userids],
+          userids: data[:userids]
         }
       end
       result = @client.api_request(
-        method: 'usergroup.update',
-        params: user_groups,
+        method: "usergroup.update",
+        params: user_groups
       )
-      result ? result['usrgrpids'][0].to_i : nil
+      result ? result["usrgrpids"][0].to_i : nil
     end
   end
 end

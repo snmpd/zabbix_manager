@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Problems < Basic
     # The method name used for interacting with Hosts via Zabbix API
     #
     # @return [String]
     def method_name
-      'problem'
+      "problem"
     end
 
     # The id field name used for identifying specific Problem objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # The key field name used for Problem objects via Zabbix API
@@ -19,7 +21,7 @@ class ZabbixManager
     #
     # @return [String]
     def key
-      'problemid'
+      "problemid"
     end
 
     # Returns the object's plural id field name (identify) based on key
@@ -27,7 +29,7 @@ class ZabbixManager
     #
     # @return [String]
     def keys
-      'problemids'
+      "problemids"
     end
 
     # Dump Problem object data by key from Zabbix API
@@ -40,12 +42,12 @@ class ZabbixManager
       log "[DEBUG] Call dump_by_id with parameters: #{data.inspect}"
 
       @client.api_request(
-        method: 'problem.get',
+        method: "problem.get",
         params: {
           filter: {
             identify.to_sym => data[identify.to_sym]
           },
-          output: 'extend'
+          output: "extend"
         }
       )
     end
@@ -64,27 +66,27 @@ class ZabbixManager
       @client.api_request(
         method: "#{method_name}.get",
         params: {
-          filter:                {
+          filter: {
             identify.to_sym => data[identify.to_sym]
           },
-          eventids:              data[:eventids] || nil,
-          groupids:              data[:groupids] || nil,
-          hostids:               data[:hostids] || nil,
-          objectids:             data[:objectids] || nil,
-          applicationids:        data[:applicationids] || nil,
-          tags:                  data[:tags] || nil,
-          time_from:             data[:time_from] || nil,
-          time_till:             data[:time_till] || nil,
-          eventid_from:          data[:eventid_from] || nil,
-          eventid_till:          data[:eventid_till] || nil,
-          recent:                data[:recent] || false,
-          sortfield:             data[:sortfield] || ['eventid'],
-          sortorder:             data[:sortorder] || 'DESC',
-          countOutput:           data[:countOutput] || nil,
-          output:                'extend',
-          selectAcknowledges:    'extend',
-          selectTags:            'extend',
-          selectSuppressionData: 'extend'
+          eventids: data[:eventids] || nil,
+          groupids: data[:groupids] || nil,
+          hostids: data[:hostids] || nil,
+          objectids: data[:objectids] || nil,
+          applicationids: data[:applicationids] || nil,
+          tags: data[:tags] || nil,
+          time_from: data[:time_from] || nil,
+          time_till: data[:time_till] || nil,
+          eventid_from: data[:eventid_from] || nil,
+          eventid_till: data[:eventid_till] || nil,
+          recent: data[:recent] || false,
+          sortfield: data[:sortfield] || ["eventid"],
+          sortorder: data[:sortorder] || "DESC",
+          countOutput: data[:countOutput] || nil,
+          output: "extend",
+          selectAcknowledges: "extend",
+          selectTags: "extend",
+          selectSuppressionData: "extend"
         }
       )
     end
@@ -118,16 +120,15 @@ class ZabbixManager
 
     def ack_event(eventids)
       # 请求后端
-      result = @client.api_request(
+      @client.api_request(
         method: "event.acknowledge",
         params: {
           eventids: eventids,
-          action:   2,
-          message:  "由 RUBY SCRIPT 自动关闭"
+          action: 2,
+          message: "由 RUBY SCRIPT 自动关闭"
         }
       )
       # 返回运行结果
-      result
     end
   end
 end

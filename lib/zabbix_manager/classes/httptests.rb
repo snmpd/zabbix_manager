@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class HttpTests < Basic
     # The method name used for interacting with HttpTests via Zabbix API
     #
     # @return [String]
     def method_name
-      'httptest'
+      "httptest"
     end
 
     # The id field name used for identifying specific HttpTest objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # The default options used when creating HttpTest objects via Zabbix API
