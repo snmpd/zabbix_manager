@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Scripts < Basic
     def method_name
-      'script'
+      "script"
     end
 
     # The id field name used for identifying specific Screen objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # Submits a request to the zabbix api
@@ -20,7 +22,7 @@ class ZabbixManager
     # Returns nothing
     def execute(data)
       @client.api_request(
-        method: 'script.execute',
+        method: "script.execute",
         params: {
           scriptid: data[:scriptid],
           hostid: data[:hostid]
@@ -29,7 +31,7 @@ class ZabbixManager
     end
 
     def getscriptsbyhost(data)
-      @client.api_request(method: 'script.getscriptsbyhosts', params: data)
+      @client.api_request(method: "script.getscriptsbyhosts", params: data)
     end
   end
 end

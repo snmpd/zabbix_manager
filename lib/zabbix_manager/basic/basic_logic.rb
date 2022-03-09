@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Basic
     # Create new Zabbix object using API (with defaults)
@@ -96,7 +98,7 @@ class ZabbixManager
           filter: {
             identify.to_sym => data[identify.to_sym]
           },
-          output: 'extend'
+          output: "extend"
         }
       )
     end
@@ -131,7 +133,7 @@ class ZabbixManager
           filter: {
             key.to_sym => data[key.to_sym]
           },
-          output: 'extend'
+          output: "extend"
         }
       )
     end
@@ -145,7 +147,7 @@ class ZabbixManager
       result = {}
       @client.api_request(
         method: "#{method_name}.get",
-        params: { output: 'extend' }
+        params: { output: "extend" }
       ).each do |item|
         result[item[identify]] = item[key]
       end
@@ -165,7 +167,7 @@ class ZabbixManager
       data = symbolize_keys(data) if data.key?(identify)
       # raise an error if identify name was not supplied
       name = data[identify.to_sym]
-      raise ManagerError.new("#{identify} not supplied in call to get_id") if name.nil?
+      raise ManagerError, "#{identify} not supplied in call to get_id" if name.nil?
 
       result = @client.api_request(
         method: "#{method_name}.get",
@@ -174,7 +176,7 @@ class ZabbixManager
           output: [key, identify]
         }
       )
-      id     = nil
+      id = nil
       result.each { |item| id = item[key].to_i if item[identify] == data[identify.to_sym] }
       id
     end

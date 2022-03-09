@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Graphs < Basic
     # The method name used for interacting with Graphs via Zabbix API
     #
     # @return [String]
     def method_name
-      'graph'
+      "graph"
     end
 
     # The id field name used for identifying specific Graph objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # Get full/extended Graph data from Zabbix API
@@ -29,7 +31,7 @@ class ZabbixManager
           search: {
             identify.to_sym => data[identify.to_sym]
           },
-          output: 'extend'
+          output: "extend"
         }
       )
     end
@@ -42,18 +44,18 @@ class ZabbixManager
     # @return [Array] Returns array of Graph ids
     def get_ids_by_host(data)
       result = @client.api_request(
-        method: 'graph.get',
+        method: "graph.get",
         params: {
           filter: {
             host: data[:host]
           },
-          output: 'extend'
+          output: "extend"
         }
       )
 
       result.map do |graph|
-        num  = graph['graphid']
-        name = graph['name']
+        num  = graph["graphid"]
+        name = graph["name"]
         filter = data[:filter]
 
         num if filter.nil? || /#{filter}/ =~ name
@@ -68,10 +70,10 @@ class ZabbixManager
     # @return [Hash]
     def get_items(data)
       @client.api_request(
-        method: 'graphitem.get',
+        method: "graphitem.get",
         params: {
           graphids: [data],
-          output: 'extend'
+          output: "extend"
         }
       )
     end

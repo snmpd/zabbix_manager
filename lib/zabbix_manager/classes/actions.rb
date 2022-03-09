@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Actions < Basic
     # The method name used for interacting with Actions via Zabbix API
     #
     # @return [String]
     def method_name
-      'action'
+      "action"
     end
 
     # The id field name used for identifying specific Action objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # Get full/extended Action object data from API
@@ -29,11 +31,11 @@ class ZabbixManager
           filter: {
             identify.to_sym => data[identify.to_sym]
           },
-          output: 'extend',
+          output: "extend",
           selectOperations: "extend",
           selectRecoveryOperations: "extend",
           selectAcknowledgeOperations: "extend",
-          selectFilter: "extend",
+          selectFilter: "extend"
         }
       )
     end

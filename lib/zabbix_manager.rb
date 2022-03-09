@@ -1,37 +1,39 @@
-require 'zabbix_manager/version'
-require 'zabbix_manager/client'
+# frozen_string_literal: true
 
-require 'zabbix_manager/basic/basic_alias'
-require 'zabbix_manager/basic/basic_func'
-require 'zabbix_manager/basic/basic_init'
-require 'zabbix_manager/basic/basic_logic'
+require "zabbix_manager/version"
+require "zabbix_manager/client"
 
-require 'zabbix_manager/classes/actions'
-require 'zabbix_manager/classes/applications'
-require 'zabbix_manager/classes/configurations'
-require 'zabbix_manager/classes/errors'
-require 'zabbix_manager/classes/events'
-require 'zabbix_manager/classes/graphs'
-require 'zabbix_manager/classes/hostgroups'
-require 'zabbix_manager/classes/hosts'
-require 'zabbix_manager/classes/httptests'
-require 'zabbix_manager/classes/items'
-require 'zabbix_manager/classes/maintenance'
-require 'zabbix_manager/classes/mediatypes'
-require 'zabbix_manager/classes/proxies'
-require 'zabbix_manager/classes/problems'
-require 'zabbix_manager/classes/roles'
-require 'zabbix_manager/classes/screens'
-require 'zabbix_manager/classes/scripts'
-require 'zabbix_manager/classes/server'
-require 'zabbix_manager/classes/templates'
-require 'zabbix_manager/classes/triggers'
-require 'zabbix_manager/classes/unusable'
-require 'zabbix_manager/classes/usergroups'
-require 'zabbix_manager/classes/usermacros'
-require 'zabbix_manager/classes/users'
-require 'zabbix_manager/classes/valuemaps'
-require 'zabbix_manager/classes/drules'
+require "zabbix_manager/basic/basic_alias"
+require "zabbix_manager/basic/basic_func"
+require "zabbix_manager/basic/basic_init"
+require "zabbix_manager/basic/basic_logic"
+
+require "zabbix_manager/classes/actions"
+require "zabbix_manager/classes/applications"
+require "zabbix_manager/classes/configurations"
+require "zabbix_manager/classes/errors"
+require "zabbix_manager/classes/events"
+require "zabbix_manager/classes/graphs"
+require "zabbix_manager/classes/hostgroups"
+require "zabbix_manager/classes/hosts"
+require "zabbix_manager/classes/httptests"
+require "zabbix_manager/classes/items"
+require "zabbix_manager/classes/maintenance"
+require "zabbix_manager/classes/mediatypes"
+require "zabbix_manager/classes/proxies"
+require "zabbix_manager/classes/problems"
+require "zabbix_manager/classes/roles"
+require "zabbix_manager/classes/screens"
+require "zabbix_manager/classes/scripts"
+require "zabbix_manager/classes/server"
+require "zabbix_manager/classes/templates"
+require "zabbix_manager/classes/triggers"
+require "zabbix_manager/classes/unusable"
+require "zabbix_manager/classes/usergroups"
+require "zabbix_manager/classes/usermacros"
+require "zabbix_manager/classes/users"
+require "zabbix_manager/classes/valuemaps"
+require "zabbix_manager/classes/drules"
 
 class ZabbixManager
   # @return [ZabbixManager::Client]
@@ -192,4 +194,3 @@ class ZabbixManager
     @drules ||= Drules.new(@client)
   end
 end
-

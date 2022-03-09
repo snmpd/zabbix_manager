@@ -15,8 +15,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["WENWU YAN"]
   spec.email         = ["careline@foxmail.com"]
 
-  spec.summary       = "Write a short summary, because RubyGems requires one."
-  spec.description   = "Write a longer description or delete this line."
+  spec.summary       = "ZABBIX API connector for VERSION 4.0 5.0 6.0"
+  spec.description   = "most codes are borrowed from zabbixapi, but changed some logic to fit everyday job wells. now support ZABBIX 4.0, 5.0, 6.0"
   spec.homepage      = "https://github.com/snmpd/zabbix_manager"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"

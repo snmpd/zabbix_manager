@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Hosts < Basic
     # The method name used for interacting with Hosts via Zabbix API
     #
     # @return [String]
     def method_name
-      'host'
+      "host"
     end
 
     # The id field name used for identifying specific Host objects via Zabbix API
     #
     # @return [String]
     def identify
-      'host'
+      "host"
     end
 
     # Dump Host object data by key from Zabbix API
@@ -23,12 +25,12 @@ class ZabbixManager
     def dump_by_id(data)
       log "[DEBUG] Call dump_by_id with parameters: #{data.inspect}"
       @client.api_request(
-        method: 'host.get',
+        method: "host.get",
         params: {
           filter: {
             key.to_sym => data[key.to_sym]
           },
-          output: 'extend',
+          output: "extend"
           # selectHosts: 'shorten'
         }
       )
@@ -39,23 +41,23 @@ class ZabbixManager
     # @return [Hash]
     def default_options
       {
-        host:           nil,
-        interfaces:     {
-          main:    1,
-          useip:   1,
-          type:    2,
-          ip:      nil,
-          dns:     "",
-          port:    161,
+        host: nil,
+        interfaces: {
+          main: 1,
+          useip: 1,
+          type: 2,
+          ip: nil,
+          dns: "",
+          port: 161,
           details: {
-            version:   2,
+            version: 2,
             community: "transsion"
           }
         },
-        status:         0,
-        available:      1,
-        groups:         [],
-        proxy_hostid:   nil,
+        status: 0,
+        available: 1,
+        groups: [],
+        proxy_hostid: nil,
         inventory_mode: 1
       }
     end
@@ -68,9 +70,9 @@ class ZabbixManager
     # @return [Boolean]
     def unlink_templates(data)
       result = @client.api_request(
-        method: 'host.massRemove',
+        method: "host.massRemove",
         params: {
-          hostids:   data[:hosts_id],
+          hostids: data[:hosts_id],
           templates: data[:templates_id]
         }
       )
@@ -120,19 +122,19 @@ class ZabbixManager
     # 测试数据
     def update_mojo
       data = {
-        name:           "SZX1-16-SW3111111111",
-        groups:         [
-                          {
-                            groupid: 22
-                          }
-                        ],
-        templates:      [
-                          {
-                            templateid: 10227
-                          }
-                        ],
+        name: "SZX1-16-SW3111111111",
+        groups: [
+          {
+            groupid: 22
+          }
+        ],
+        templates: [
+          {
+            templateid: 10_227
+          }
+        ],
         inventory_mode: 1,
-        hostid:         15951
+        hostid: 15_951
       }
 
       # 请求后端接口
@@ -142,7 +144,7 @@ class ZabbixManager
     # 根据主机名查询 hostid
     def get_host_id(name)
       result = @client.api_request(
-        method: 'host.get',
+        method: "host.get",
         params: {
           output: "extend",
           filter: {
@@ -158,7 +160,7 @@ class ZabbixManager
     # 根据可见名称查询 hostid
     def get_hostid_by_name(name)
       result = @client.api_request(
-        method: 'host.get',
+        method: "host.get",
         params: {
           output: "extend",
           filter: {
@@ -210,7 +212,7 @@ class ZabbixManager
         # 新增监控对象
         create data
       end
-    rescue => e
+    rescue StandardError => e
       puts "创建或新增主机 #{data[:host]} 异常，异常信息：#{e}"
       # raise NotImplementedError
     end

@@ -1,24 +1,26 @@
+# frozen_string_literal: true
+
 class ZabbixManager
   class Roles < Basic
     # The method name used for interacting with Role via Zabbix API
     #
     # @return [String]
     def method_name
-      'role'
+      "role"
     end
 
     # The key field name used for Role objects via Zabbix API
     #
     # @return [String]
     def key
-      'roleid'
+      "roleid"
     end
 
     # The id field name used for identifying specific Role objects via Zabbix API
     #
     # @return [String]
     def identify
-      'name'
+      "name"
     end
 
     # Set permissions for usergroup using Zabbix API
@@ -30,13 +32,13 @@ class ZabbixManager
     def rules(data)
       rules = data[:rules] || 2
       result = @client.api_request(
-        method: 'role.update',
+        method: "role.update",
         params: {
           roleid: data[:roleid],
           rules: data[:hostgroupids].map { |t| { permission: permission, id: t } }
         }
       )
-      result ? result['usrgrpids'][0].to_i : nil
+      result ? result["usrgrpids"][0].to_i : nil
     end
 
     # Add users to usergroup using Zabbix API
@@ -60,10 +62,10 @@ class ZabbixManager
       log "[DEBUG] Call dump_by_id with parameters: #{data.inspect}"
 
       @client.api_request(
-        method: 'role.get',
+        method: "role.get",
         params: {
-          output: 'extend',
-          selectRules: 'extend',
+          output: "extend",
+          selectRules: "extend",
           roleids: data[:id]
         }
       )
@@ -77,17 +79,17 @@ class ZabbixManager
     # @return [Array] Returns array of Graph ids
     def get_ids_by_name(data)
       result = @client.api_request(
-        method: 'role.get',
+        method: "role.get",
         params: {
           filter: {
             name: data[:name]
           },
-          output: 'extend'
+          output: "extend"
         }
       )
 
       result.map do |rule|
-        rule['roleid']
+        rule["roleid"]
       end.compact
     end
 
@@ -101,14 +103,14 @@ class ZabbixManager
       user_groups = data[:usrgrpids].map do |t|
         {
           usrgrpid: t,
-          userids: data[:userids],
+          userids: data[:userids]
         }
       end
       result = @client.api_request(
-        method: 'usergroup.update',
-        params: user_groups,
+        method: "usergroup.update",
+        params: user_groups
       )
-      result ? result['usrgrpids'][0].to_i : nil
+      result ? result["usrgrpids"][0].to_i : nil
     end
   end
 end
