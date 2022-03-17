@@ -1,41 +1,98 @@
-# ZabbixManager
+# Ruby Zabbix Api Module
 
-most codes are borrowed from zabbixapi, but changed some logic to fit everyday job wells. now support ZABBIX 4.0, 5.0, 6.0
+[![Gem Version](http://img.shields.io/gem/v/zabbix_manager.svg)][gem]
+[![Build Status](https://github.com/anapsix/zabbix_manager/workflows/CI/badge.svg)][github-ci]
+
+[gem]: https://rubygems.org/gems/zabbix_manager
+[github-ci]: https://github.com/express42/zabbix_manager/actions?query=workflow%3ACI
+
+Simple and lightweight ruby module for working with [Zabbix][Zabbix] via the [Zabbix API][Zabbix API]
 
 ## Installation
+```sh
+# latest
+gem install zabbix_manager
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'zabbix_manager'
+# specific version
+gem install zabbix_manager -v 4.2.0
 ```
 
-And then execute:
+## Documentation
+[http://rdoc.info/gems/zabbix_manager][documentation]
 
-    $ bundle install
+[documentation]: http://rdoc.info/gems/zabbix_manager
 
-Or install it yourself as:
+## Examples
+[https://github.com/express42/zabbix_manager/tree/master/examples][examples]
 
-    $ gem install zabbix_manager
+[examples]: https://github.com/express42/zabbix_manager/tree/master/examples
 
-## Usage
+## Version Policy
 
-TODO: Write usage instructions here
+**NOTE:** `master` branch is used for ongoing development on Zabbix API 5.x (5.0 and 5.2).
 
-## Development
+We support only two last versions of zabbix (5.0 and 5.2), so you should consider all previous versions deprecated.
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+* Zabbix 1.8.2 (api version 1.2) | zabbix_manager 0.6.x | [branch zabbix1.8](https://github.com/express42/zabbix_manager/tree/zabbix1.8)
+* Zabbix 1.8.9 (api version 1.3) | zabbix_manager 0.6.x | [branch zabbix1.8](https://github.com/express42/zabbix_manager/tree/zabbix1.8)
+* Zabbix 2.0.x (api version 1.4 -> 2.0.10) | zabbix_manager 2.0.x | [branch zabbix2.0](https://github.com/express42/zabbix_manager/tree/zabbix2.0)
+* Zabbix 2.2.x (api version 2.2.x) | zabbix_manager 2.2.x | [branch zabbix2.2](https://github.com/express42/zabbix_manager/tree/zabbix2.2)
+* Zabbix 2.4.x (api version 2.2.x) | zabbix_manager 2.4.x | [branch zabbix2.4](https://github.com/express42/zabbix_manager/tree/zabbix2.4)
+* Zabbix 3.0.x (api version 3.0.x) | zabbix_manager 3.0.x | [branch zabbix3.0](https://github.com/express42/zabbix_manager/tree/zabbix3.0)
+* Zabbix 3.2.x (api version 3.2.x) | zabbix_manager 3.2.x | [branch zabbix3.2](https://github.com/express42/zabbix_manager/tree/zabbix3.2)
+* Zabbix 4.0.x (api version 4.0.x) | zabbix_manager 4.1.x | [branch zabbix4.0](https://github.com/express42/zabbix_manager/tree/zabbix4.0)
+* Zabbix 4.2.x (api version 4.2.x) | zabbix_manager 4.1.x | [branch zabbix4.0](https://github.com/express42/zabbix_manager/tree/zabbix4.0)
+* Zabbix 4.4.x (api version 4.4.x) | zabbix_manager 4.2.x | [branch zabbix4.2](https://github.com/express42/zabbix_manager/tree/zabbix4.2)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Supported Ruby Versions
+This library aims to support and is [tested against][github-ci] the following Ruby
+versions:
+
+* Ruby 2.5
+* Ruby 2.6
+* Ruby 2.7
+* JRuby 9.2.10.0
+
+If something doesn't work on one of these versions, it's a bug.
+
+This library may inadvertently work (or seem to work) on other Ruby versions,
+however support will only be provided for the versions listed above.
+
+If you would like this library to support another Ruby version or
+implementation, you may volunteer to be a maintainer. Being a maintainer
+entails making sure all tests run and pass on that implementation. When
+something breaks on your implementation, you will be responsible for providing
+patches in a timely fashion. If critical issues for a particular implementation
+exist at the time of a major release, support for that Ruby version may be
+dropped.
+
+## Dependencies
+
+* net/http
+* json
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/zabbix_manager. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/zabbix_manager/blob/master/CODE_OF_CONDUCT.md).
+* Fork the project.
+* Base your work on the master branch.
+* Make your feature addition or bug fix, write tests, write documentation/examples.
+* Commit, do not mess with rakefile, version.
+* Make a pull request.
 
-## License
+## Zabbix documentation
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+* [Zabbix Project Homepage][Zabbix]
+* [Zabbix API docs][Zabbix API]
 
-## Code of Conduct
+[Zabbix]: https://www.zabbix.com
+[Zabbix API]: https://www.zabbix.com/documentation/5.2/manual/api
 
-Everyone interacting in the ZabbixManager project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ciscolive/zabbix_manager/blob/master/CODE_OF_CONDUCT.md).
+## Copyright
+
+- Copyright (c) 2021 [contributors]
+- Copyright (c) 2015-2018 Express 42 and [contributors]
+
+See [LICENSE] for details.
+
+[LICENSE]: LICENSE.md
+[contributors]: https://github.com/express42/zabbix_manager/graphs/contributors

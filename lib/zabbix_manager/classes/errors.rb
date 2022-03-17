@@ -12,14 +12,13 @@ class ZabbixManager
     end
 
     private
-
-    def set_error!
-      @error = @response["error"]
-      @error_message = "#{@error["message"]}: #{@error["data"]}"
-    rescue StandardError
-      @error = nil
-      @error_message = nil
-    end
+      def set_error!
+        @error = @response["error"]
+        @error_message = "#{@error["message"]}: #{@error["data"]}"
+      rescue StandardError
+        @error = nil
+        @error_message = nil
+      end
   end
 
   class ManagerError < BaseError

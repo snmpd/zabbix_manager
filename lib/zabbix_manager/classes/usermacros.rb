@@ -203,28 +203,27 @@ class ZabbixManager
     end
 
     private
-
-    # Custom request method to handle both User and Global macros in one
-    #
-    # @param data [Hash] Needs to include macro and hostid to properly identify Global macros via Zabbix API
-    # @param method [String] Zabbix API method to use for the request
-    # @param result_key [String] Which key to use for parsing results based on User vs Global macros
-    # @raise [ManagerError] Error returned when there is a problem with the Zabbix API call.
-    # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
-    # @return [Integer] Zabbix object id
-    def request(data, method, result_key)
-      # Zabbix has different result formats for gets vs updates
-      if method.include?(".get")
-        if result_key.include?("global")
-          @client.api_request(method: method, params: { globalmacro: true, filter: data })
+      # Custom request method to handle both User and Global macros in one
+      #
+      # @param data [Hash] Needs to include macro and hostid to properly identify Global macros via Zabbix API
+      # @param method [String] Zabbix API method to use for the request
+      # @param result_key [String] Which key to use for parsing results based on User vs Global macros
+      # @raise [ManagerError] Error returned when there is a problem with the Zabbix API call.
+      # @raise [HttpError] Error raised when HTTP status from Zabbix Server response is not a 200 OK.
+      # @return [Integer] Zabbix object id
+      def request(data, method, result_key)
+        # Zabbix has different result formats for gets vs updates
+        if method.include?(".get")
+          if result_key.include?("global")
+            @client.api_request(method: method, params: { globalmacro: true, filter: data })
+          else
+            @client.api_request(method: method, params: { filter: data })
+          end
         else
-          @client.api_request(method: method, params: { filter: data })
-        end
-      else
-        result = @client.api_request(method: method, params: data)
+          result = @client.api_request(method: method, params: data)
 
-        result.key?(result_key) && !result[result_key].empty? ? result[result_key][0].to_i : nil
+          result.key?(result_key) && !result[result_key].empty? ? result[result_key][0].to_i : nil
+        end
       end
-    end
   end
 end

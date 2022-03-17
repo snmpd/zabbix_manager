@@ -150,7 +150,7 @@ class ZabbixManager
       result = @client.api_request(
         method: "trigger.update",
         params: {
-          triggerid: triggerid.to_i,
+          triggerid: triggerid,
           comments: data["comments"],
           priority: data["priority"],
           description: data["description"],

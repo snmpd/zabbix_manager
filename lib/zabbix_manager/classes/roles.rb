@@ -88,9 +88,9 @@ class ZabbixManager
         }
       )
 
-      result.map do |rule|
+      result.filter_map do |rule|
         rule["roleid"]
-      end.compact
+      end
     end
 
     # Update users in Userroles using Zabbix API

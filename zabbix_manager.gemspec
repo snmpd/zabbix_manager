@@ -1,47 +1,43 @@
+# coding: utf-8
 # frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
+
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require_relative "lib/zabbix_manager/version"
+require "zabbix_manager/version"
 
 Gem::Specification.new do |spec|
-  spec.add_dependency 'http', '~> 2.0'
-  spec.add_dependency 'json', '~> 2.0'
-  spec.add_development_dependency 'bundler'
-  
-  spec.name          = "zabbix_manager"
-  spec.version       = ZabbixManager::VERSION
-  spec.authors       = ["WENWU YAN"]
-  spec.email         = ["careline@foxmail.com"]
+  spec.add_dependency "http", "~> 4.0"
+  spec.add_dependency "json", "~> 2.0"
+  spec.add_development_dependency "bundler", "~> 2.3", ">= 2.3.9"
 
-  spec.summary       = "ZABBIX API connector for VERSION 4.0 5.0 6.0"
-  spec.description   = "most codes are borrowed from zabbixapi, but changed some logic to fit everyday job wells. now support ZABBIX 4.0, 5.0, 6.0"
-  spec.homepage      = "https://github.com/snmpd/zabbix_manager"
-  spec.license       = "MIT"
-  spec.required_ruby_version = ">= 2.4.0"
+  spec.add_development_dependency "rspec", "~> 3.11"
+  spec.add_development_dependency "yard", "~> 0.9.27"
+  spec.add_development_dependency "yardstick", "~> 0.9.9"
+  spec.add_development_dependency "rubocop", "~> 1.25", ">= 1.25.1"
+  spec.add_development_dependency "rubocop-minitest", "~> 0.18.0"
+  spec.add_development_dependency "rubocop-performance", "~> 1.13"
+  spec.add_development_dependency "rubocop-rails", "~> 2.13", ">= 2.13.2"
+  spec.add_development_dependency "rubocop-packaging", "~> 0.5.1"
+
+  spec.name    = "zabbix_manager"
+  spec.version = ZabbixManager::VERSION
+  spec.authors = ["WENWU YAN"]
+  spec.email   = ["careline@foxmail.com"]
+
+  spec.summary     = "Simple and lightweight ruby module for working with the Zabbix API, support 4.0 5.0 6.0"
+  spec.description = "Most codes borrowed from zabbix_manager, But changed some logic for everyday jobs."
+  spec.homepage    = "https://github.com/snmpd/zabbix_manager"
+  spec.licenses    = "MIT"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
-  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["homepage_uri"]    = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/snmpd/zabbix_manager"
-  spec.metadata["changelog_uri"] = "https://github.com/snmpd/zabbix_manager"
+  spec.metadata["changelog_uri"]   = "https://github.com/snmpd/zabbix_manager"
 
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").reject do |f|
-      (f == __FILE__) || f.match(%r{\A(?:(?:test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
-    end
-  end + Dir['lib/**/*.rb']
-
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
-
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
-
-  # For more information and examples about making a new gem, checkout our
-  # guide at: https://bundler.io/guides/creating_gem.html
+  spec.files                 = %w[CHANGELOG.md LICENSE.txt README.md zabbix_manager.gemspec] + Dir["lib/**/*.rb"]
+  spec.require_paths         = "lib"
+  spec.required_ruby_version = ">= 2.7.0"
 end
