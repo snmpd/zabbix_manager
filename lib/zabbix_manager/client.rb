@@ -45,7 +45,7 @@ class ZabbixManager
     # Initializes a new Client object
     #
     # @param options [Hash]
-    # @option opts [String] :url The url of zabbixapi(example: 'http://localhost/zabbix/api_jsonrpc.php')
+    # @option opts [String] :url The url of zabbix_manager(example: 'http://localhost/zabbix/api_jsonrpc.php')
     # @option opts [String] :user
     # @option opts [String] :password
     # @option opts [String] :http_user A user for basic auth.(optional)
@@ -63,7 +63,7 @@ class ZabbixManager
       end
 
       if api_version.match?(/^7\.\d+\.\d+$/)
-        message = "Zabbix API version: #{api_version} is not supported by this version of zabbixapi"
+        message = "Zabbix API version: #{api_version} is not supported by this version of zabbix_manager"
         if @options[:ignore_version]
           puts "[WARNING] #{message}" if @options[:debug]
         else

@@ -53,13 +53,13 @@ class ZabbixManager
         }
       )
 
-      result.map do |graph|
+      result.filter_map do |graph|
         num  = graph["graphid"]
         name = graph["name"]
         filter = data[:filter]
 
         num if filter.nil? || /#{filter}/ =~ name
-      end.compact
+      end
     end
 
     # Get Graph Item object using Zabbix API

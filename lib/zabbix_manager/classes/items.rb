@@ -99,7 +99,7 @@ class ZabbixManager
             name: iface
           }
         }
-      ).select { |item| item["snmp_oid"].match?(/1.3.6.1.2.1.31.1.1.1.(6|10)./) }
+      ).select { |item| item["snmp_oid"].match?(/1.3.6.1.2.1.31.1.1.1.(6|10|15)./) }
 
       # 检查是是否存在
       result.empty? ? nil : result

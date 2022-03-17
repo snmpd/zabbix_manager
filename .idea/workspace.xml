@@ -4,7 +4,108 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f25f96c-828f-4aea-8886-dcbae369ba60" name="变更" comment="" />
+    <list default="true" id="11737140-b963-499a-8053-8cbe6e0bf876" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vagrant.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/zabbix_manager.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Actions.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Applications.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Configurations.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/DiscoveryRule.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Graphs.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Hostgroups.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Hosts.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Httptests.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Items.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Maintenance.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/MediaTypes.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Problems.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Proxies.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Queries with Filters.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Screens.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Templates.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Triggers.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Usergroups.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Usermacros.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Users.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/Valuemaps.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/action.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/application.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/basic_func.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/configuration.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/drule.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/event.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/graph.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/host.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/hostgroup.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/httptest.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/item.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/maintenance.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/mediatype.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/problem.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/query.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/screen.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/script.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/server.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/template.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/trigger.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/user.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/usergroup.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/usermacro.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/valuemap.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/basic/basic_alias_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/basic/basic_func_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/basic/basic_init_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/basic/basic_logic_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/actions_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/applications_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/configurations_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/errors_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/graphs_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/hostgroups_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/hosts_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/httptests_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/items_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/maintenance_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/mediatypes_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/problems_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/proxies_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/roles_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/screens_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/scripts_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/server_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/templates_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/triggers_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/unusable_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/usergroups_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/usermacros_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/users_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/classes/valuemap_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/zabbix_manager/client_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/bin/local_docker_stack" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/docker_compose/test_docker_stack.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rubocop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.rubocop.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rakefile" beforeDir="false" afterPath="$PROJECT_DIR$/Rakefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zabbix_manager/classes/errors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zabbix_manager/classes/errors.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zabbix_manager/classes/graphs.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zabbix_manager/classes/graphs.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zabbix_manager/classes/items.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zabbix_manager/classes/items.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zabbix_manager/classes/roles.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zabbix_manager/classes/roles.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zabbix_manager/classes/triggers.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zabbix_manager/classes/triggers.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zabbix_manager/classes/usermacros.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zabbix_manager/classes/usermacros.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zabbix_manager/client.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zabbix_manager/client.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/zabbix_manager/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/zabbix_manager/version.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zabbix_manager-5.0.6.gem" beforeDir="false" afterPath="$PROJECT_DIR$/zabbix_manager-5.0.6.gem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zabbix_manager.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/zabbix_manager.gemspec" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +118,7 @@
     <bower-package value="" />
     <bower.json value="" />
   </component>
-  <component name="ProjectId" id="265x23SpJKPxcHuoXgA68nnhQDg" />
+  <component name="ProjectId" id="26VnQFp8B1qU80eOoDSajwtky5F" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,10 +126,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -39,19 +139,27 @@
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="9f25f96c-828f-4aea-8886-dcbae369ba60" name="变更" comment="" />
-      <created>1646727041577</created>
+      <changelist id="11737140-b963-499a-8053-8cbe6e0bf876" name="变更" comment="" />
+      <created>1647517603667</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1646727041577</updated>
-      <workItem from="1646727043249" duration="3509000" />
-      <workItem from="1646732978147" duration="8000" />
-      <workItem from="1646734414024" duration="13000" />
+      <updated>1647517603667</updated>
+      <workItem from="1647517604856" duration="844000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
