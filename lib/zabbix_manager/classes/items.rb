@@ -21,38 +21,38 @@ class ZabbixManager
     # @return [Hash]
     def default_options
       {
-        name: nil,
-        key_: nil,
-        hostid: nil,
-        delay: 60,
-        history: 3600,
-        status: 0,
-        type: 7,
-        snmp_community: "",
-        snmp_oid: "",
-        value_type: 3,
-        data_type: 0,
-        trapper_hosts: "localhost",
-        snmp_port: 161,
-        units: "",
-        multiplier: 0,
-        delta: 0,
-        snmpv3_securityname: "",
-        snmpv3_securitylevel: 0,
+        name:                  nil,
+        key_:                  nil,
+        hostid:                nil,
+        delay:                 60,
+        history:               3600,
+        status:                0,
+        type:                  7,
+        snmp_community:        "",
+        snmp_oid:              "",
+        value_type:            3,
+        data_type:             0,
+        trapper_hosts:         "localhost",
+        snmp_port:             161,
+        units:                 "",
+        multiplier:            0,
+        delta:                 0,
+        snmpv3_securityname:   "",
+        snmpv3_securitylevel:  0,
         snmpv3_authpassphrase: "",
         snmpv3_privpassphrase: "",
-        formula: 0,
-        trends: 86_400,
-        logtimefmt: "",
-        valuemapid: 0,
-        delay_flex: "",
-        authtype: 0,
-        username: "",
-        password: "",
-        publickey: "",
-        privatekey: "",
-        params: "",
-        ipmi_sensor: ""
+        formula:               0,
+        trends:                86_400,
+        logtimefmt:            "",
+        valuemapid:            0,
+        delay_flex:            "",
+        authtype:              0,
+        username:              "",
+        password:              "",
+        publickey:             "",
+        privatekey:            "",
+        params:                "",
+        ipmi_sensor:           ""
       }
     end
 
@@ -93,13 +93,17 @@ class ZabbixManager
         method: "item.get",
         params: {
           # output:  ["itemid", "name", "snmp_oid", "key_", "triggerids"],
-          output: "extend",
+          output:  "extend",
           hostids: hostid,
-          search: {
+          search:  {
             name: iface
           }
         }
-      ).select { |item| item["snmp_oid"].match?(/1.3.6.1.2.1.31.1.1.1.(6|10|15)./) }
+      ).select {
+        |item| item["snmp_oid"].match?(/(1.3.6.1.2.1.31.1.1.1.(6|10|15)|1.3.6.1.2.1.2.2.1.8)./)
+      }.sort_by {
+        |item| item["key_"]
+      }
 
       # 检查是是否存在
       result.empty? ? nil : result
@@ -116,17 +120,17 @@ class ZabbixManager
         method: "item.create",
         params: {
           hostid: hostid,
-          name: item_name,
-          key_: item_key_,
+          name:   item_name,
+          key_:   item_key_,
           # 代表 zabbix_agent
           type: 0,
           # 代表字符串
           value_type: 1,
           # 固定参数
-          delay: "1m",
-          history: "90d",
+          delay:    "1m",
+          history:  "90d",
           lifetime: "30d",
-          timeout: "3s"
+          timeout:  "3s"
         }
       )
       p "成功创建 dns监控 #{dns_name}"
@@ -139,7 +143,7 @@ class ZabbixManager
       result = @client.api_request(
         method: "item.get",
         params: {
-          output: "extend",
+          output:  "extend",
           hostids: "16914"
         }
       )

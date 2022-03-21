@@ -28,11 +28,11 @@ class ZabbixManager
       @client.api_request(
         method: "trigger.get",
         params: {
-          filter: {
+          filter:           {
             keys.to_sym => data[keys.to_sym]
           },
-          output: "extend",
-          select_items: "extend",
+          output:           "extend",
+          select_items:     "extend",
           select_functions: "extend"
         }
       )
@@ -72,8 +72,8 @@ class ZabbixManager
         # disable old trigger
         log "[DEBUG] disable :" + @client.api_request(method: "#{method_name}.update",
                                                       params: [{
-                                                        triggerid: data[:triggerid], status: "1"
-                                                      }]).inspect
+                                                                 triggerid: data[:triggerid], status: "1"
+                                                               }]).inspect
         # create new trigger
         data.delete(:triggerid)
         create(data)
@@ -110,11 +110,11 @@ class ZabbixManager
     # 测试数据
     def mojo_data
       data = {
-        comments: "MOJO1",
-        opdata: "MOJO_OPDATA",
-        priority: 1,
-        description: "MOJO1",
-        expression: "{SZX1-ISP-SW7:net.if.in[ifHCInOctets.1].avg(15m)}>=450000000 or {SZX1-ISP-SW7:net.if.out[ifHCOutOctets.1].avg(15m)}>=450000000",
+        comments:            "MOJO1",
+        opdata:              "MOJO_OPDATA",
+        priority:            1,
+        description:         "MOJO1",
+        expression:          "{SZX1-ISP-SW7:net.if.in[ifHCInOctets.1].avg(15m)}>=450000000 or {SZX1-ISP-SW7:net.if.out[ifHCOutOctets.1].avg(15m)}>=450000000",
         recovery_expression: "{SZX1-ISP-SW7:net.if.in[ifHCInOctets.1].avg(15m)}<=350000000 or {SZX1-ISP-SW7:net.if.out[ifHCOutOctets.1].avg(15m)}<=350000000"
       }
 
@@ -128,15 +128,15 @@ class ZabbixManager
       result = @client.api_request(
         method: "trigger.create",
         params: {
-          comments: data["comments"],
-          priority: data["priority"],
-          description: data["description"],
-          expression: data["expression"],
+          comments:            data["comments"],
+          priority:            data["priority"],
+          description:         data["description"],
+          expression:          data["expression"],
           recovery_expression: data["recovery_expression"],
-          opdata: data["opdata"],
-          recovery_mode: 1,
-          type: 0,
-          manual_close: 1
+          opdata:              data["opdata"],
+          recovery_mode:       1,
+          type:                0,
+          manual_close:        1
         }
       )
       # 检查是是否存在
@@ -150,20 +150,34 @@ class ZabbixManager
       result = @client.api_request(
         method: "trigger.update",
         params: {
-          triggerid: triggerid,
-          comments: data["comments"],
-          priority: data["priority"],
-          description: data["description"],
-          expression: data["expression"],
+          triggerid:           triggerid,
+          comments:            data["comments"],
+          priority:            data["priority"],
+          description:         data["description"],
+          expression:          data["expression"],
           recovery_expression: data["recovery_expression"],
-          opdata: data["opdata"],
-          recovery_mode: 1,
-          type: 1,
-          manual_close: 1
+          opdata:              data["opdata"],
+          recovery_mode:       1,
+          type:                1,
+          manual_close:        1
         }
       )
       # ap result
       # 检查是是否存在
+      result.empty? ? nil : result["triggerids"]
+    end
+
+    # 添加触发器依赖项
+    def add_trigger_dependency(triggerid, depend_on_trigger_id)
+      log "[DEBUG] Call add_trigger_dependency with parameters: #{triggerid} #{depend_on_trigger_id}"
+      # 请求生成触发器
+      result = @client.api_request(
+        method: "trigger.adddependencies",
+        params: {
+          triggerid:          triggerid,
+          dependsOnTriggerid: depend_on_trigger_id
+        }
+      )
       result.empty? ? nil : result["triggerids"]
     end
   end

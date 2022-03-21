@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.email   = ["careline@foxmail.com"]
 
   spec.summary     = "Simple and lightweight ruby module for working with the Zabbix API, support 4.0 5.0 6.0"
-  spec.description = "Most codes borrowed from zabbix_manager, But changed some logic for everyday jobs."
+  spec.description = "Most codes borrowed from ZabbixApi, But changed some logic for everyday jobs."
   spec.homepage    = "https://github.com/snmpd/zabbix_manager"
   spec.licenses    = "MIT"
 
