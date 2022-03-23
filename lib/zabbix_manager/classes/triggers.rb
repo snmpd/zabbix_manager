@@ -158,7 +158,7 @@ class ZabbixManager
           recovery_expression: data["recovery_expression"],
           opdata:              data["opdata"],
           recovery_mode:       1,
-          type:                1,
+          type:                0,
           manual_close:        1
         }
       )
